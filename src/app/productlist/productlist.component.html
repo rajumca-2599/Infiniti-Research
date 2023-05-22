@@ -1,0 +1,187 @@
+<div class="login_mainwrapper">
+    <div class="p-2 mainshadow">
+        <div class="row mt-2">
+            <div class="col-1">
+                <img (click)="moveToservice()" class="menuicon" src="../../assets/imgs/left-arrow.png" alt="">
+            </div>
+            <div class="col-2 mt-2 px-1">
+                <select style="border: 0px;">
+
+                    <option value="services">services</option>
+                    <option value="products">products</option>
+                </select>
+            </div>
+            <div class="col-5 mt-2">
+                <div class="search-hero">
+                    <input class="New_input" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Search category for insights">
+                  </div>
+                <!-- <input style="border: 0px;" type="text" placeholder="search by products & services" /> -->
+            </div>
+            <div class="col-1">
+                <img class="menuicon" src="../../assets/imgs/seach.png" alt="">
+            </div>
+            <div class="col-1">
+                <img class="menuicon" src="../../assets/imgs/menu (1).png" alt="">
+            </div>
+
+
+        </div>
+
+
+
+
+    </div>
+    <div class="row ml-2">
+        <div class="col-12 mt-3">
+            <p>
+                {{servicesname}}>{{dropNmae}} ><b>{{listName}}</b>
+
+            </p>
+        </div>
+
+    </div>
+    <div>
+        <swiper [config]="config" class="auto_swiper_1">
+            <div class="swiper-wrapper">
+                <div *ngFor="let item of newalbumlist" class="col-5 mb-3 ml-2  p-1 swiper-slide">
+
+                    <p class="_bgclr ml-2">
+                        {{item}}
+                    </p>
+                </div>
+
+
+            </div>
+        </swiper>
+    </div>
+    <hr>
+    <div class="row row1">
+        <div class="col-5">
+            <p class="m-2"> 90,000+ results</p>
+        </div>
+        <div class="col-7">
+            <div class="row">
+                <div class="col-1">
+                    <img class="menuicon" src="../../assets/imgs/menu.png" alt="">
+
+                </div>
+                <div class="col-1">
+                    <img class="menuicon" src="../../assets/imgs/seach.png" alt="">
+
+                </div>
+                <div class="col-1">
+                    <img class="menuicon" src="../../assets/imgs/down-arrow.png" alt="">
+
+                </div>
+                <div class="col-2">
+                    <p class="text-primary">sort</p>
+                </div>
+
+                <div class="col-1">
+                    <img class="menuicon" src="../../assets/imgs/menu (1).png" alt=""
+                        style="background-color: #2771c1;">
+                </div>
+                <div class="col-2">
+                    <p class="text-primary">filter</p>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+    <hr>
+  
+    <div>
+        <div class="row">
+            <div class="col-12">
+                <div class="nav flex-row nav-pills ml-2" id="v-pills-tab" role="tablist">
+                    <button class="nav-link active col-4" id="v-pills-home-tab" data-toggle="pill" data-target="#v-pills-home"
+                        type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">All</button>
+                    <button class="nav-link col-4" id="v-pills-profile-tab" data-toggle="pill" data-target="#v-pills-profile"
+                        type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Auction</button>
+                    <button class="nav-link col-4" id="v-pills-messages-tab" data-toggle="pill"
+                        data-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages"
+                        aria-selected="false">Buy now it</button>
+                </div>
+            </div>
+            <div class="col-9">
+                <div class="tab-content" id="v-pills-tabContent">
+                    <div class="tab-pane fade show active ml-3" id="v-pills-home" role="tabpanel"
+                        aria-labelledby="v-pills-home-tab">
+                        <div class="row1">
+                            <div *ngFor="let item of trandingData | filter:searchText" class="col-4 m-3 mb-3  siglecard1">
+                                <img src="{{item.images}}" class="img-fluid">
+                                <p class="pt-2 hideContent">
+                                    {{item.name}}
+                                </p>
+                                <p>
+                                    {{item.price}}
+                                </p>
+                                <p style="color: red;">Time Left</p>
+                                <p>
+                                    {{item.time}}
+                                </p>
+                                <p>5bids</p>
+                                <p>
+                                    {{item.shipping}}
+                                </p>
+                
+                            </div>
+                        </div>
+                    
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-profile" role="tabpanel"
+                        aria-labelledby="v-pills-profile-tab">
+                        <div class="row1">
+                            <div *ngFor="let item of featureData | filter:searchText" class="col-4 m-3 siglecard1">
+                                <img src="{{item.images}}" class="img-fluid">
+                                <p class="pt-2 hideContent">
+                                    {{item.name}}
+                                </p>
+                                <p>
+                                    {{item.price}}
+                                </p>
+                                <p style="color: red;">Time Left</p>
+                                <p>
+                                    {{item.time}}
+                                </p>
+                                <p>5bids</p>
+                                <p>
+                                    {{item.shipping}}
+                                </p>
+                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-messages" role="tabpanel"
+                        aria-labelledby="v-pills-messages-tab">
+                        <div class="row1">
+                            <div *ngFor="let item of featuredData | filter:searchText" class="col-4 m-3 mb-3 siglecard1">
+                                <img src="{{item.images}}" class="img-fluid">
+                                <p class="pt-2 hideContent">
+                                    {{item.name}}
+                                </p>
+                                <p>
+                                    {{item.price}}
+                                </p>
+                                <p style="color: red;">Time Left</p>
+                                <p>
+                                    {{item.time}}
+                                </p>
+                                <p>5bids</p>
+                                <p>
+                                    {{item.shipping}}
+                                </p>
+                
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

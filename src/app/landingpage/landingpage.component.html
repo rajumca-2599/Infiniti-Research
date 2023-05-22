@@ -1,0 +1,465 @@
+<div class="login_mainwrapper">
+    <div class="p-2 mainshadow">
+        <div class="row mt-2">
+            <div class="col-1">
+                <img (click)="moveToall()" class="menuicon" src="../../assets/imgs/menu.png" alt="">
+            </div>
+            <div class="col-2 mt-2 px-1">
+                <select style="border: 0px;">
+
+                    <option value="services">services</option>
+                    <option value="products">products</option>
+                </select>
+            </div>
+            <div class="col-5 mt-2">
+                <input style="border: 0px;" type="text" placeholder="search by products & services" />
+            </div>
+            <div class="col-1">
+                <img class="menuicon" src="../../assets/imgs/seach.png" alt="">
+            </div>
+            <div class="col-1">
+                <img class="menuicon" src="../../assets/imgs/menu (1).png" alt="">
+            </div>
+            <div class="col-2 mt-2">
+                <p>filter</p>
+            </div>
+
+        </div>
+
+
+
+
+    </div>
+    <div class="row secdiv mt-3 ml-2">
+        <div class="col-3 m-3">
+            <p class="mt-3">Request anything</p>
+        </div>
+        <div class="col-3 m-3">
+            <p class="mt-3">Create event</p>
+        </div>
+        <div class="col-3 m-3">
+            <p class="mt-3">action items</p>
+        </div>
+    </div>
+
+    <div id="carouselExampleSlidesOnly" class="carousel slide m-4" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active  carousel-img">
+                <img src="../../assets/imgs/imgcor.svg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item carousel-img">
+                <img src="../../assets/imgs/imgcor.svg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item carousel-img">
+                <img src="../../assets/imgs/imgcor.svg" class="d-block w-100" alt="...">
+            </div>
+        </div>
+    </div>
+    <hr/>
+
+    <div>
+        <div class="row maincard ml-2 p-1">
+            <div class="col-8 ml-2">
+                <h5>Explore Popular Categories</h5>
+            </div>
+            <div class="col-3">
+                <button *ngIf='Hideservices' style="border: 0px; background-color: white;color: blue;"
+                    (click)="showdata()">view all</button>
+                <button *ngIf='!Hideservices' style="border: 0px; background-color: white;color: blue;"
+                    (click)="hidedata()">Hide all</button>
+            </div>
+
+        </div>
+
+        
+        <div class="row  maincard" *ngIf="!Hideservices">
+
+
+            <div *ngFor="let item of newalbumlist" class="col-3 ml-3 mb-3  p-3 siglecard1">
+                <img src="{{item.img}}" class="img-fluid">
+                <p class="pt-3">
+                    {{item.name}}
+                </p>
+
+            </div>
+
+        </div>
+        <div  *ngIf="Hideservices">
+            <swiper [config]="config" class="auto_swiper_1">
+                <div class="swiper-wrapper">
+                    <div *ngFor="let item of newalbumlist" class="col-4 mb-3  p-3 siglecard1 swiper-slide">
+                        <img src="{{item.img}}" class="img-fluid">
+                <p class="pt-3">
+                    {{item.name}}
+                </p>
+                    </div>
+                    
+                   
+                </div>
+            </swiper> 
+    
+        </div>
+        
+
+    </div>
+    <hr />
+
+
+    <div>
+        <div class="row maincard ml-2 p-1">
+            <div class="col-8 ml-2">
+                <h5>Trending Auctions</h5>
+            </div>
+            <div class="col-3">
+                <button *ngIf='HideTranding' style="border: 0px; background-color: white;color: blue;"
+                    (click)="showdatatranding()">view all</button>
+                <button *ngIf='!HideTranding' style="border: 0px; background-color: white;color: blue;"
+                    (click)="hidedatatranding()">Hide all</button>
+            </div>
+
+        </div>
+        <div class="row ml-3">
+            <div class="col-10">
+                <p class="ml-1">
+                    See what's popular across thousands of Auctions
+                </p>
+            </div>
+
+        </div>
+        
+
+        
+        <div class="row  maincard" *ngIf="!HideTranding">
+
+
+            <div *ngFor="let item of trandingData" class="col-3 ml-3 mb-3  p-3 siglecard">
+                <img src="{{item.images}}" class="img-fluid">
+                <p class="pt-2 hideContent">
+                    {{item.name}}
+                </p>
+                <p>
+                    {{item.price}}
+                </p>
+                <p style="color: red;">Time Left</p>
+                <p>
+                    {{item.time}}
+                </p>
+                <p>5bids</p>
+                <p>
+                    {{item.shipping}}
+                </p>
+
+            </div>
+
+        </div>
+        <div  *ngIf="HideTranding">
+            <swiper [config]="config" class="auto_swiper_1">
+                <div class="swiper-wrapper">
+                    <div *ngFor="let item of trandingData" class="col-4 mb-3  p-3 siglecard swiper-slide">
+                        <img src="{{item.images}}" class="img-fluid">
+                        <p class="pt-2 hideContent">
+                            {{item.name}}
+                        </p>
+                        <p>
+                            {{item.price}}
+                        </p>
+                        <p style="color: red;">Time Left</p>
+                        <p>
+                            {{item.time}}
+                        </p>
+                        <p>5bids</p>
+                        <p>
+                            {{item.shipping}}
+                        </p>
+                    </div>
+                    
+                   
+                </div>
+            </swiper> 
+    
+        </div>
+
+    </div>
+    <hr />
+    <div>
+        <div class="row maincard ml-2 p-1">
+            <div class="col-8 ml-2">
+                <h5>Featured products</h5>
+            </div>
+
+            <div class="col-3">
+                <button *ngIf='HideFeature' style="border: 0px; background-color: white;color: blue;"
+                    (click)="showdatafeature()">view all</button>
+                <button *ngIf='!HideFeature' style="border: 0px; background-color: white;color: blue;"
+                    (click)="hidedatafeature()">Hide all</button>
+            </div>
+
+
+        </div>
+        <div class="row ml-3">
+            <div class="col-10">
+                <p class="ml-1">
+                    See what's popular across thousands of Auctions
+                </p>
+            </div>
+
+        </div>
+        
+
+        
+        <div class="row  maincard" *ngIf="!HideFeature">
+
+
+            <div *ngFor="let item of featureData" class="col-3 ml-3 mb-3  p-3 siglecard">
+                <img src="{{item.images}}" class="img-fluid">
+                <p class="pt-2 hideContent">
+                    {{item.name}}
+                </p>
+                <p>
+                    {{item.price}}
+                </p>
+                <p style="color: red;">Time Left</p>
+                <p>
+                    {{item.time}}
+                </p>
+                <p>5bids</p>
+                <p>
+                    {{item.shipping}}
+                </p>
+
+            </div>
+
+        </div>
+        <div  *ngIf="HideFeature">
+            <swiper [config]="config" class="auto_swiper_1">
+                <div class="swiper-wrapper">
+                    <div *ngFor="let item of featureData" class="col-4 mb-3  p-3 siglecard swiper-slide">
+                        <img src="{{item.images}}" class="img-fluid">
+                        <p class="pt-2 hideContent">
+                            {{item.name}}
+                        </p>
+                        <p>
+                            {{item.price}}
+                        </p>
+                        <p style="color: red;">Time Left</p>
+                        <p>
+                            {{item.time}}
+                        </p>
+                        <p>5bids</p>
+                        <p>
+                            {{item.shipping}}
+                        </p>
+                    </div>
+                    
+                   
+                </div>
+            </swiper> 
+    
+        </div>
+
+    </div>
+    <hr />
+
+    <div>
+        <div class="row maincard ml-2 p-1">
+            <div class="col-8 ml-2">
+                <h5>Featured Services</h5>
+            </div>
+            <div class="col-3">
+                <button *ngIf='HideFeatured' style="border: 0px; background-color: white;color: blue;"
+                    (click)="showdatafeatured()">view all</button>
+                <button *ngIf='!HideFeatured' style="border: 0px; background-color: white;color: blue;"
+                    (click)="hidedatafeatured()">Hide all</button>
+            </div>
+
+        </div>
+        <div class="row ml-3">
+            <div class="col-10">
+                <p class="ml-1">
+                    See what's popular across thousands of Auctions
+                </p>
+            </div>
+
+        </div>
+        <div class="row  maincard" *ngIf="!HideFeatured">
+
+
+            <div *ngFor="let item of featuredData" class="col-3 ml-3 mb-3  p-3 siglecard">
+                <img src="{{item.images}}" class="img-fluid">
+                <p class="pt-2 hideContent">
+                    {{item.name}}
+                </p>
+                <p>
+                    {{item.price}}
+                </p>
+                <p style="color: red;">Time Left</p>
+                <p>
+                    {{item.time}}
+                </p>
+                <p>5bids</p>
+                <p>
+                    {{item.shipping}}
+                </p>
+            </div>
+
+        </div>
+        <div  *ngIf="HideFeatured">
+            <swiper [config]="config" class="auto_swiper_1">
+                <div class="swiper-wrapper">
+                    <div *ngFor="let item of featuredData" class="col-4 mb-3  p-3 siglecard swiper-slide">
+                        <img src="{{item.images}}" class="img-fluid">
+                        <p class="pt-2 hideContent">
+                            {{item.name}}
+                        </p>
+                        <p>
+                            {{item.price}}
+                        </p>
+                        <p style="color: red;">Time Left</p>
+                        <p>
+                            {{item.time}}
+                        </p>
+                        <p>5bids</p>
+                        <p>
+                            {{item.shipping}}
+                        </p>
+                    </div>
+                    
+                   
+                </div>
+            </swiper> 
+    
+        </div>
+
+    </div>
+
+    <hr />
+    <div>
+        <div class="row maincard ml-2 p-1">
+            <div class="col-8 ml-2">
+                <h5>Featured Events</h5>
+            </div>
+            <div class="col-3">
+                <button *ngIf='Hideevents' style="border: 0px; background-color: white;color: blue;"
+                    (click)="showdataevents()">view all</button>
+                <button *ngIf='!Hideevents' style="border: 0px; background-color: white;color: blue;"
+                    (click)="hidedataevents()">Hide all</button>
+            </div>
+
+        </div>
+        
+        <div class="row ml-3">
+            <div class="col-10">
+                <p class="ml-1">
+                    See what's popular across thousands of Auctions
+                </p>
+            </div>
+
+        </div>
+        
+        <div class="row  maincard" *ngIf="!Hideevents">
+            <div *ngFor="let item of eventsData" class="col-8 m-3  mb-3  siglecard mainshadow">
+                <div class="btn-group mt-3">
+
+                    <button class="btn-primary btn-xm">new</button>
+
+
+                    <button class=" btn-primary btn-xm ml-2">sheduled</button>
+
+                </div>
+                <div class="row mt-3">
+                    <div class="col-8">
+                        <h6 class="pt-2 hideContent fnt_size">
+                            {{item.title}}
+                        </h6>
+                    </div>
+                    <div class="col-4">
+                        <button class="demo btn-primary">NOV</button>
+                        <h5 class="ml-2 _size">18</h5>
+                    </div>
+                </div>
+                <h6 >
+                    {{item.time}}
+                </h6>
+                <div class="row m-3">
+                    <div class="col-4">
+                        <img src="../../assets/imgs/user.png" class="img-fluid rimg">
+                    </div>
+                    <div class="col-3">
+                        <h6>
+                            {{item.name}}
+                        </h6>
+                        <h6>
+                            Global foundries
+                        </h6>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3 ml-4 w-10">
+                        <img  src="../../assets/imgs/employees.png" class="img-fluid rimg bgcolorimg">
+                    </div>
+                    <div class="col-5 mt-3">
+                        <h6 class="text-primary">one to one </h6>
+                    </div>
+                    
+                </div>
+            </div>
+
+        </div>
+
+    </div >
+    <div  *ngIf="Hideevents">
+        <swiper [config]="config" class="auto_swiper_1">
+            <div class="swiper-wrapper">
+                <div *ngFor="let item of eventsData" class="col-8 m-3  mb-3  siglecard mainshadow swiper-slide">
+                    <div class="btn-group mt-3">
+    
+                        <button class="btn-primary btn-xm">new</button>
+    
+    
+                        <button class=" btn-primary btn-xm ml-2">sheduled</button>
+    
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-8">
+                            <h6 class="pt-2 hideContent fnt_size">
+                                {{item.title}}
+                            </h6>
+                        </div>
+                        <div class="col-4">
+                            <button class="demo btn-primary">NOV</button>
+                            <h5 class="ml-2 _size">18</h5>
+                        </div>
+                    </div>
+                    <h6 >
+                        {{item.time}}
+                    </h6>
+                    <div class="row m-1">
+                        <div class="col-4">
+                            <img src="../../assets/imgs/user.png" class="img-fluid rimg">
+                        </div>
+                        <div class="col-3">
+                            <h6>
+                                {{item.name}}
+                            </h6>
+                            <h6>
+                                Global foundries
+                            </h6>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3 ml-4 w-10">
+                            <img  src="../../assets/imgs/employees.png" class="img-fluid rimg bgcolorimg">
+                        </div>
+                        <div class="col-5 mt-3">
+                            <h6 class="text-primary">one to one </h6>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+               
+            </div>
+        </swiper> 
+
+    </div>
+</div>

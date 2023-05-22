@@ -1,0 +1,84 @@
+<div class="login_mainwrapper">
+    <div class="p-3 mainshadow" >
+        <div class="row mt-2">
+            <div class="col-1">
+                <img (click)="moveTolanding()" class="menuicon" src="../../assets/imgs/left-arrow.png" alt="">
+                
+             </div >
+             <div class="col-3">
+                
+             </div >
+             
+             <div class="col-6 mt-2">
+                    <!-- <input class="New_input"  [(ngModel)]="seachvalue" (change)="searchproducts($event)"  type="text" placeholder="Search category for insights"/> -->
+                    <!-- <input type="text"name="search" class="New_input" [(ngModel)]="searchText" autocomplete="off" ngModel (ngModelChange)="searchproducts($event)"> -->
+                    <div class="search-hero">
+                        <input class="New_input" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Search category for insights">
+                      </div>
+             </div>
+            
+
+        </div>
+      
+        
+       
+
+    </div>
+    <div>
+        <div class="row maincard  p-1">
+            <div class="col-8">
+                <h6>Recent</h6>
+            </div>
+            
+
+        </div>
+       
+        
+           <div class="row ml-3" >
+            
+
+            <div *ngFor="let item of recentlist" class="col-3 ml-3 mb-3  p-3 siglecard1">
+                <div  (click)="movetoShops(item)">
+                    <img src="{{item.img}}" class="img-fluid">
+             <p class="pt-3">
+                 {{item.name}}
+             </p>
+     
+
+                </div>
+             
+            </div>
+     
+           </div>
+          
+       </div>
+
+    <div>
+        <div class="row maincard p-1">
+            <div class="col-8 ">
+                <h6>All Categories</h6>
+            </div>
+            
+
+        </div>
+       
+        
+           <div class="row  maincard" >
+            
+
+            <div *ngFor="let item of newalbumlist  | filter:searchText" class="col-3 ml-3 mb-3  p-3 siglecard1">
+                <div  (click)="movetoShops(item)">
+                    <img src="{{item.img}}" class="img-fluid">
+             <p class="pt-3">
+                 {{item.name}}
+             </p>
+
+                </div>
+             
+     
+            </div>
+     
+           </div>
+          
+       </div>
+</div>
